@@ -1,4 +1,4 @@
 goingdown
 =========
 
-Visually my weightloss
+Visualizing my weightloss
