@@ -1,9 +1,6 @@
-
 from weightbot import WeightBot
-from pprint import pprint
-import json 
 
-bot = WeightBot('joe.fearnley@gmail.com', 'heritag1')
+bot = WeightBot('joe.fearnley@gmail.com', '')
 data = bot.get_data()
 
-json.dumps(data)
+echo data
