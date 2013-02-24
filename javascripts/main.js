@@ -4,7 +4,19 @@ $(function () {
   var options = {
     xaxis: {
       mode: 'time',
-      timeformat: '%m-%d'
+      timeformat: '%m-%d',
+      min: (new Date(2013, 0, 9)).getTime(),
+		  max: (new Date(2013, 2, 1)).getTime()
+    },
+    points: {
+      show: true
+    },
+    lines: {
+      show: true
+    },
+    legend: {
+      show: true,
+      position: 'ne'
     }
   };
 
@@ -26,13 +38,9 @@ $(function () {
   $.plot(placeholder, 
     [
       {
-        data: data,
-        points: {
-          show: true
-        },
-        lines: {
-          show: true
-        }
+        label: 'lbs',
+        labelWidth: 20,
+        data: data
       }
     ],
     options);
