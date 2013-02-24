@@ -1,40 +1,5 @@
 var weightData = [
-	{
-		"date": "2012-04-09",
-		"kilograms": "83.9",
-		"pounds": "185.0"
-	},
-	{
-		"date": "2012-04-11",
-		"kilograms": "83.5",
-		"pounds": "184.0"
-	},
-	{
-		"date": "2012-04-13",
-		"kilograms": "82.6",
-		"pounds": "182.2"
-	},
-	{
-		"date": "2012-04-24",
-		"kilograms": "82.3",
-		"pounds": "181.5"
-	},
-	{
-		"date": "2012-04-27",
-		"kilograms": "81.2",
-		"pounds": "179.1"
-	},
-	{
-		"date": "2012-05-04",
-		"kilograms": "80.5",
-		"pounds": "177.4"
-	},
-	{
-		"date": "2012-05-11",
-		"kilograms": "79.5",
-		"pounds": "175.3"
-	},
-	{
+  {
 		"date": "2013-01-09",
 		"kilograms": "83.2",
 		"pounds": "183.5"
