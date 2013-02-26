@@ -1,4 +1,3 @@
 venv/
 data/
 *.pyc
-goingdown/config.py
