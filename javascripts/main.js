@@ -16,18 +16,28 @@ $(function () {
     }
   };
 
-  for(i = 0; i < weightData.length; i++) {
-    var time = new Date(weightData[i].date).getTime();
-    var pounds = parseFloat(weightData[i].pounds);
-    var d = [time, pounds];
-    data.push(d);
-  }
+  console.log('calling heroku');
 
-  $.plot(placeholder, 
-    [
-      {
-        data: data
-      }
-    ],
-    options);
+  $.getJSON('http://goingdown.heroku.com', function(weightData) {
+    console.log('slkdfjalsjdf');
+    console.log(weightData);
+
+    for(i = 0; i < weightData.length; i++) {
+      var time = new Date(weightData[i].date).getTime();
+      var pounds = parseFloat(weightData[i].pounds);
+      var d = [time, pounds];
+      data.push(d);
+    }
+
+    $.plot(placeholder, 
+      [
+        { data: data }
+      ],
+      options);
+  })
+  .success(function() { console.log("second success"); })
+  .error(function(d) { 
+    console.log(d); 
+  })
+  .complete(function() { alert("complete"); });;
 });
