@@ -37,5 +37,5 @@ def index():
     origin = request.headers.get('Origin')
     if origin in allowed:
         response.headers['Access-Control-Allow-Origin'] = origin
-  
+
     return response
