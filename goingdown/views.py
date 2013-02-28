@@ -32,7 +32,7 @@ def index():
     data = json.dumps([ row for row in reader ])
     f.close()
 
-    allowed = ['http://localhost', 'http://goingdown.heroku.com']
+    allowed = ['http://localhost', 'http://joefearnley.com/goingdown']
     response = make_response(data)
     origin = request.headers.get('Origin')
     if origin in allowed:
