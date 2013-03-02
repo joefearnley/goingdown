@@ -39,5 +39,5 @@ $(function () {
   .error(function(d) { 
     console.log(d); 
   })
-  .complete(function() { alert("complete"); });;
+  .complete(function() { console.log("complete"); });;
 });
