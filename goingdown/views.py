@@ -1,6 +1,6 @@
 from weightbot import WeightBot
 from goingdown import app
-from flask import request, make_response
+from flask import request
 from crossdomain import crossdomain
 import datetime
 import os.path
@@ -31,8 +31,7 @@ def index():
 
     f = open(filename, 'r')
     reader = csv.DictReader(f, fieldnames = ('date', 'kilograms', 'pounds'))
-    data = json.dumps([ row for row in reader ])
+    response = json.dumps([ row for row in reader ])
     f.close()
 
-    response = make_response(data)
     return response
