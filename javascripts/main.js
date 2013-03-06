@@ -18,26 +18,14 @@ $(function () {
 
   console.log('calling heroku');
 
-  $.getJSON('http://goingdown.heroku.com', function(weightData) {
-    console.log('slkdfjalsjdf');
-    console.log(weightData);
-
-    for(i = 0; i < weightData.length; i++) {
-      var time = new Date(weightData[i].date).getTime();
-      var pounds = parseFloat(weightData[i].pounds);
-      var d = [time, pounds];
-      data.push(d);
-    }
-
-    $.plot(placeholder, 
-      [
-        { data: data }
-      ],
-      options);
-  })
-  .success(function() { console.log("second success"); })
-  .error(function(d) { 
-    console.log(d); 
-  })
-  .complete(function() { console.log("complete"); });;
+  $.ajax({
+    type: 'GET',
+    url: 'http://goingdown.heroku.com',
+    crossDomain: true,
+    dataType: 'jsonp',
+  }).success(function(responseData, textStatus, jqXHR) {
+     console.log('success');
+  }).error(function (responseData, textStatus, errorThrown) {
+     console.log(responseData);
+  });
 });
