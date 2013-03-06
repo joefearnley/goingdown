@@ -34,6 +34,5 @@ def index():
     data = json.dumps([ row for row in reader ])
     f.close()
 
-    allowed = ['http://localhost', 'http://joefearnley.com/goingdown']
     response = make_response(data)
     return response
