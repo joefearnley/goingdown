@@ -16,8 +16,6 @@ $(function () {
     }
   };
 
-  console.log('calling heroku');
-
   var options = {
     type: 'GET',
     url: 'http://goingdown.heroku.com',
@@ -26,19 +24,29 @@ $(function () {
 
   var request = $.ajax(options);
 
-  request.done(updateGraph);
-  request.fail(handleError);
-  request.always(requestCompleted);
+  request.done(function(data, textStatus, jqXHR) {
+    console.log('Ajax call sucessful...updating graph.');
+/*
+    for(i = 0; i < weightData.length; i++) {
+      var time = new Date(weightData[i].date).getTime();
+      var pounds = parseFloat(weightData[i].pounds);
+      var d = [time, pounds];
+      data.push(d);
+    }
+
+    $.plot(placeholder,[{data: data}], options);
+*/
+  });
+
+  request.fail(function(jqXHR, textStatus, errorThrown) {
+    console.log('Error encountered: ' + texyStatus);
+  });
+
+  request.always(function(data, textStatus, jqXHR) {
+    console.log('Ajax call complete: ' + textStatus);
+  });
 });
 
-function updateGraph(data, textStatus, jqXHR) {
-  console.log('Ajax call sucessful...updating graph.');
-}
 
-function handleError(jqXHR, textStatus, errorThrown) {
-  console.log(jqXHR);
-}
 
-function requestCompleted(data, textStatus, jqXHR) {
-  console.log('Ajax call complete: ' + textStatus);
-}
+
