@@ -18,14 +18,27 @@ $(function () {
 
   console.log('calling heroku');
 
-  $.ajax({
+  var options = {
     type: 'GET',
     url: 'http://goingdown.heroku.com',
-    crossDomain: true,
-    dataType: 'jsonp',
-  }).success(function(responseData, textStatus, jqXHR) {
-     console.log('success');
-  }).error(function (responseData, textStatus, errorThrown) {
-     console.log(responseData);
-  });
+    crossDomain: true
+  };
+
+  var request = $.ajax(options);
+
+  request.done(updateGraph);
+  request.fail(handleError);
+  request.always(requestCompleted);
 });
+
+function updateGraph(data, textStatus, jqXHR) {
+  console.log('Ajax call sucessful...updating graph.');
+}
+
+function handleError(jqXHR, textStatus, errorThrown) {
+  console.log(jqXHR);
+}
+
+function requestCompleted(data, textStatus, jqXHR) {
+  console.log('Ajax call complete: ' + textStatus);
+}
