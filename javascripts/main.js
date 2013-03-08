@@ -16,8 +16,6 @@ $(function () {
     }
   };
 
-  // START THE SPINNER!!
-
   var options = {
     type: 'GET',
     url: 'http://goingdown.heroku.com',
@@ -45,7 +43,7 @@ $(function () {
 
   request.always(function(data, textStatus, jqXHR) {
     console.log('Ajax call complete: ' + textStatus);
-    // STOP THE SPINNER
+    $('#loading').hide();
   });
 });
 
