@@ -26,7 +26,7 @@ $(function () {
 
   request.done(function(data, textStatus, jqXHR) {
     console.log('Ajax call sucessful...updating graph.');
-/*
+  /*
     for(i = 0; i < weightData.length; i++) {
       var time = new Date(weightData[i].date).getTime();
       var pounds = parseFloat(weightData[i].pounds);
@@ -39,7 +39,7 @@ $(function () {
   });
 
   request.fail(function(jqXHR, textStatus, errorThrown) {
-    console.log('Error encountered: ' + texyStatus);
+    console.log('Error encountered: ' + textStatus);
   });
 
   request.always(function(data, textStatus, jqXHR) {
