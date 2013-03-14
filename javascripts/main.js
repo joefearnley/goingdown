@@ -37,8 +37,7 @@ $(function () {
   });
 
   request.fail(function(jqXHR, textStatus, errorThrown) {
-    console.log('sfasdf');
-    $('#placeholder').html('<strong>Error encountered fetching data</strong>');
+    $('#placeholder').addClass('error').html('Error encountered fetching data');
   });
 
   request.always(function(data, textStatus, jqXHR) {
