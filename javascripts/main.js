@@ -10,8 +10,6 @@ $(function () {
   var request = $.ajax(options);
 
   request.done(function(data, textStatus, jqXHR) {
-    console.log('Ajax call sucessful...updating graph.');
-
     var weightData = [];
     for(i = 1; i < data.length; i++) {
       var time = new Date(data[i].date).getTime();
@@ -20,33 +18,30 @@ $(function () {
       weightData.push(d);
     }
 
-    plotData(weightData);
+    var placeholder = $('#placeholder');
+
+    var options = {
+      xaxis: {
+        mode: 'time',
+        timeformat: '%m/%d',
+        min: (new Date(2013, 0, 7)).getTime(),
+		    max: (new Date(2013, 3, 1)).getTime()
+      }, points: {
+        show: true
+      }, lines: {
+        show: true
+      }
+    };
+
+    $.plot(placeholder,[{data: weightData}], options);
   });
 
   request.fail(function(jqXHR, textStatus, errorThrown) {
-    console.log('Error encountered: ' + textStatus);
+    console.log('sfasdf');
+    $('#placeholder').html('<strong>Error encountered fetching data</strong>');
   });
 
   request.always(function(data, textStatus, jqXHR) {
-    console.log('Ajax call complete: ' + textStatus);
     $('#loading').hide();
   });
 });
-
-function plotData(data) {
-  var placeholder = $('#placeholder');
-  var options = {
-    xaxis: {
-      mode: 'time',
-      timeformat: '%m/%d',
-      min: (new Date(2013, 0, 7)).getTime(),
-		  max: (new Date(2013, 3, 1)).getTime()
-    }, points: {
-      show: true
-    }, lines: {
-      show: true
-    }
-  };
-
-  $.plot(placeholder,[{data: data}], options);
-}
