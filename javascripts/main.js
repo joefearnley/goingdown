@@ -1,8 +1,8 @@
 $(function () {
   var options = {
     type: 'GET',
-    //url: 'http://goingdown.heroku.com',
-    url: 'http://localhost:5000',
+    url: 'http://goingdown.herokuapp.com',
+    //url: 'http://localhost:5000',
     crossDomain: true,
     dataType: 'json'
   };
@@ -26,10 +26,6 @@ $(function () {
         timeformat: '%m/%d',
         min: (new Date(2013, 0, 7)).getTime(),
 		    max: (new Date(2013, 3, 1)).getTime()
-      }, points: {
-        show: true
-      }, lines: {
-        show: true
       }
     };
 
@@ -37,7 +33,9 @@ $(function () {
   });
 
   request.fail(function(jqXHR, textStatus, errorThrown) {
-    $('#placeholder').addClass('error').html('Error encountered fetching data');
+    console.log(jqXHR);
+
+    $('#placeholder').addClass('error').html('Error encountered fetching data: ' + jqXHR.responseText);
   });
 
   request.always(function(data, textStatus, jqXHR) {
