@@ -18,7 +18,6 @@ $(function () {
     }
 
     var placeholder = $('#placeholder');
-
     var options = {
       xaxis: {
         mode: 'time',
@@ -28,13 +27,17 @@ $(function () {
       }
     };
 
-    $.plot(placeholder,[{data: weightData}], options);
+    $.plot(placeholder,[{
+        data: weightData
+      }],
+      options
+    );
   });
 
   request.fail(function(jqXHR, textStatus, errorThrown) {
     console.log(jqXHR);
 
-    $('#placeholder').addClass('error').html('Error encountered fetching data: ' + jqXHR.responseText);
+    $('#placeholder').addClass('errorThrownror').html('Error encountered fetching data: ' + jqXHR.responseText);
   });
 
   request.always(function(data, textStatus, jqXHR) {
