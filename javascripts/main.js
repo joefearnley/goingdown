@@ -2,7 +2,6 @@ $(function () {
   var options = {
     type: 'GET',
     url: 'http://goingdown.herokuapp.com',
-    //url: 'http://localhost:5000',
     crossDomain: true,
     dataType: 'json'
   };
