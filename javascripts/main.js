@@ -23,7 +23,7 @@ $(function () {
         mode: 'time',
         timeformat: '%m/%d',
         min: (new Date(2013, 0, 7)).getTime(),
-		    max: (new Date(2013, 3, 1)).getTime()
+        max: (new Date(2013, 3, 1)).getTime()
       }
     };
 
@@ -35,8 +35,7 @@ $(function () {
   });
 
   request.fail(function(jqXHR, textStatus, errorThrown) {
-    console.log(jqXHR.responseText);
-    $('#placeholder').addClass('error').html('Error encountered fetching data: ' + errorThrown);
+    $('#placeholder').addClass('error').html('Error encountered fetching data');
   });
 
   request.always(function(data, textStatus, jqXHR) {
