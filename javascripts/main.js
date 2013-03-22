@@ -35,9 +35,7 @@ $(function () {
   });
 
   request.fail(function(jqXHR, textStatus, errorThrown) {
-    console.log(errorThrown);
-    console.log(textStatus);
-
+    console.log(jqXHR.responseText);
     $('#placeholder').addClass('error').html('Error encountered fetching data: ' + errorThrown);
   });
 
