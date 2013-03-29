@@ -23,7 +23,7 @@ $(function () {
         mode: 'time',
         timeformat: '%m/%d',
         min: (new Date(2013, 0, 7)).getTime(),
-        max: (new Date(2013, 2, 1)).getTime()
+        max: (new Date(2013, 2, 15)).getTime()
       }
     };
 
