@@ -8,5 +8,6 @@ the `/data` directory and print the data in json to the HTTP response. It will o
 reponse. The `/data` directory only contains a sample file. It will
 ignore files added in the future.
 
-The [`gh-pages` branch](http://joefearnley.com/goingdown) contains a front end that contains a visualization
-of the weightbot data using this app and a link to the repo.
+The [`gh-pages` branch](http://joefearnley.com/goingdown) contains a front end that contains a visualization of the weightbot data using this app and a link to the repo.
+
+Check it out at http://joefearnley.com/goingdown
