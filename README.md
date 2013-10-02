@@ -8,6 +8,8 @@ the `/data` directory and e and print the data in json to the HTTP
 response. It would only check once a day so and every file has a date appended to it. So if one is already written for that day, it will use that in the
 reponse.
 
+#### Update
+
 After updating it recently, it appears that weightbot's web version is
 broken. So now it just reads the data from the
 `data/weightbot_data.csv` file and prints the response. 
