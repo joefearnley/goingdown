@@ -2,5 +2,6 @@ Flask==0.9
 Jinja2==2.6
 Werkzeug==0.8.3
 httplib2==0.7.7
+newrelic==2.0.0.1
 weightbot==0.1
 wsgiref==0.1.2
