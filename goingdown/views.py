@@ -1,4 +1,3 @@
-from weightbot import WeightBot
 from goingdown import app
 from flask import request
 from crossdomain import crossdomain
@@ -10,24 +9,9 @@ import csv
 @app.route('/', methods=['GET'])
 @crossdomain(origin='*')
 def index():
-    """Return weight data as json. Check to see if there is a csv file 
-    in the format of weightbot_data_DATE.csv in the /data directory. If 
-    it does not call weightbot.com and download it.
-    """
-
-    today = datetime.datetime.now().strftime('%m-%d-%Y')
-    filename = 'data/weightbot_data_%s.csv'  % today
+    """Return weight data as json"""
+    filename = 'data/weightbot_data.csv'
     data = ''
-
-    if os.path.isfile(filename) == False :
-        username = app.config['WEIGHTBOT_USERNAME']
-        password = app.config['WEIGHTBOT_PASSWORD']
-        bot = WeightBot(username, password)
-        data = bot.get_csv_data()
-
-        f = open(filename, 'w')
-        f.write(data)
-        f.close()
 
     f = open(filename, 'r')
     reader = csv.DictReader(f, fieldnames = ('date', 'kilograms', 'pounds'))

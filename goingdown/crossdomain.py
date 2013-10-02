@@ -8,7 +8,6 @@ def crossdomain(origin=None, methods=None, headers=None,
     """Decorator for the HTTP Access Control
     Found here:
     http://flask.pocoo.org/snippets/56/
-    
     """
     if methods is not None:
         methods = ', '.join(sorted(x.upper() for x in methods))
